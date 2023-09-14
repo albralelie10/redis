@@ -1,4 +1,3 @@
-import mongoose, { SchemaTypes } from 'mongoose'
 import * as z from "zod"
 import {db} from "../../db"
 import { WithId } from 'mongodb';
@@ -15,7 +14,7 @@ export const UserLocal = z.object({
   age: z.number(),
   password: z.string().min(1),
   role: z.enum(["REGISTER_USER", "ADMIN"]).default("REGISTER_USER"),
-  user_configId: UserConfigLocal
+  user_config: UserConfigLocal
 });
 
 export type User=z.infer<typeof UserLocal>

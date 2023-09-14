@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 
 export const getAllPosts=async(req:Request,res:Response<PostWithId[]>,next:NextFunction)=>{
     try{
+        
         const response=await Posts.find()
         const users = await response.toArray()
         return res.json(users)
